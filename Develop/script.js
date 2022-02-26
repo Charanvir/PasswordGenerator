@@ -15,3 +15,29 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+function generatePassword() {
+  var passWordLength = prompt("Please select a password length between 8 and 128")
+  if (passWordLength > 128 || passWordLength < 8) {
+    return generatePassword();
+  }
+  else {
+    var password = "";
+
+
+
+    for (var i = 0; i < passWordLength; i++)
+      password += fullDataBase.charAt(Math.floor(Math.random() * fullDataBase.length));
+
+
+  }
+  return password;
+}
+
+
+var fullDataBase = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+var upperCaseOnly = "ABCDEFGHIJKLMOPWRSTUVWXYZ";
+var lowerCaseOnly = 'abcedfghijklmnopqrstuvwxyz';
+var numbersOnly = "0123456789";
+var specialCharactersOnly = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
