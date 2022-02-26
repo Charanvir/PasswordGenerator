@@ -18,20 +18,19 @@ generateBtn.addEventListener("click", writePassword);
 
 
 function generatePassword() {
-  var passWordLength = prompt("Please select a password length between 8 and 128")
-  if (passWordLength > 128 || passWordLength < 8) {
-    return generatePassword();
+  var passWordLength = prompt("Please select a password length between 8 and 128");
+  while (passWordLength > 128 || passWordLength < 8) {
+    alert("Password must be between 8 and 128 characters")
+    var passWordLength = prompt("Please select a password length between 8 and 128");
   }
-  else {
-    var password = "";
+  var password = "";
 
 
 
-    for (var i = 0; i < passWordLength; i++)
-      password += fullDataBase.charAt(Math.floor(Math.random() * fullDataBase.length));
+  for (var i = 0; i < passWordLength; i++)
+    password += fullDataBase.charAt(Math.floor(Math.random() * fullDataBase.length));
 
 
-  }
   return password;
 }
 
