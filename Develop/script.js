@@ -42,22 +42,18 @@ function generatePassword() {
 
   if (includeUpperCase) {
     criteria += upperCase;
-    console.log(criteria);
   }
 
   if (includeLowerCase) {
     criteria += lowerCase;
-    console.log(criteria);
   }
 
   if (includeNumbers) {
     criteria += numbers;
-    console.log(criteria);
   }
 
   if (includeSpecial) {
     criteria += specialCharacters;
-    console.log(criteria);
   }
 
   // for loop to generate password depending on selected criteria and the password length entered
