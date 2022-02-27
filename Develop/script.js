@@ -1,21 +1,17 @@
 // Assignment code here
+var allCharacters = [];
 
+var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+var specialCharacters = ['!', '#', '$', '%', '&', '(', ')', '*', '+', '-'];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
 
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
+// Generate Password Code
 
 function generatePassword() {
   var passWordLength = prompt("Please select a password length between 8 and 128");
@@ -25,12 +21,13 @@ function generatePassword() {
   }
 
   criteria();
-  return passwordChars;
+  return allCharacters;
+
 
 
 }
 
-
+// Function to determine the criteria to add in the password
 const criteria = function () {
   var includeUpperCase = window.confirm("Would you like to include upper case letters? Press Ok to include and cancel to not include")
   var includeLowerCase = window.confirm("Would you like to include lower case letters? Press Ok to include and cancel to not include")
@@ -45,6 +42,7 @@ const criteria = function () {
   if (includeUpperCase) {
 
     passwordChars = allCharacters.push(upperCase);
+
   } else {
     passwordChars = allCharacters;
   };
@@ -52,6 +50,7 @@ const criteria = function () {
   if (includeLowerCase) {
 
     passwordChars = allCharacters.push(lowerCase);
+
   } else {
     passwordChars = allCharacters;
   };
@@ -59,6 +58,7 @@ const criteria = function () {
   if (includeNumbers) {
 
     passwordChars = allCharacters.push(numbers);
+
   } else {
     passwordChars = allCharacters;
   };
@@ -66,18 +66,25 @@ const criteria = function () {
   if (includeSpecialCharacters) {
 
     passwordChars = allCharacters.push(specialCharacters);
+
   } else {
     passwordChars = allCharacters;
   };
 
 
-  return passwordChars;
 }
 
 
-var allCharacters = [];
 
-var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-var numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-var specialCharacters = ['!', '#', '$', '%', '&', '(', ')', '*', '+', '-'];
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
