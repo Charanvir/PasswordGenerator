@@ -7,8 +7,7 @@ var specialCharacters = "!@#$%^&*()";
 
 // Generate Password Code
 function generatePassword() {
-  var generatedPassword = "";
-  var criteria = "";
+
 
   // prompt user to input how long they want their password to be
 
@@ -34,31 +33,39 @@ function generatePassword() {
     var includeSpecial = confirm("Would you like your password to include SPECIAL CHARACTERS? Press OK to incude and cancel to exclude");
   }
 
+  // variables that the user will manipulate with the prompts presented
+  var generatedPassword = "";
+  var criteria = "";
+
   // criteria for the user to select. when the criteria is true, the corresponing string will be added the overall criteria string
+  // when a criteria is selected to be added into the password, the criteria variable is updated to include that data set
 
   if (includeUpperCase) {
     criteria += upperCase;
-    generatedPassword += upperCase.charAt(Math.floor(Math.random() * upperCase.length));
+    console.log(criteria);
   }
 
   if (includeLowerCase) {
     criteria += lowerCase;
-    generatedPassword += lowerCase.charAt(Math.floor(Math.random() * lowerCase.length));
+    console.log(criteria);
   }
 
   if (includeNumbers) {
     criteria += numbers;
-    generatedPassword += numbers.charAt(Math.floor(Math.random() * numbers.length));
+    console.log(criteria);
   }
 
   if (includeSpecial) {
     criteria += specialCharacters;
-    generatedPassword += specialCharacters.charAt(Math.floor(Math.random() * specialCharacters.length));
+    console.log(criteria);
   }
 
   // for loop to generate password depending on selected criteria and the password length entered
+  // the passwordLength that was determined earlier is used to tell the loop how many characters to select
+  // within the for loop, we are adding a random character from the newly modified criteria dataset into generatedPasswords, by utilizing the chatAt method, which takes an index from a string. 
+  // Since we used the Math.random function and multiplied it with the length of criteria, we are telling the loop that for every iteration, add a random character from the criteria string dataset into the generatedPassword string
 
-  for (var i = generatedPassword.length; i < passwordLength; i++) {
+  for (var i = 0; i < passwordLength; i++) {
     generatedPassword += criteria.charAt(Math.floor(Math.random() * criteria.length));
   }
 
