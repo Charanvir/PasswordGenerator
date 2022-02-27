@@ -10,7 +10,6 @@ var specialCharacters = ['!', '#', '$', '%', '&', '(', ')', '*', '+', '-'];
 var generateBtn = document.querySelector("#generate");
 
 
-
 // Generate Password Code
 
 function generatePassword() {
@@ -20,59 +19,44 @@ function generatePassword() {
     var passWordLength = prompt("Please select a password length between 8 and 128");
   }
 
+
+  // Function to determine the criteria to add in the password
+  const criteria = function () {
+    var includeUpperCase = window.confirm("Would you like to include upper case letters? Press Ok to include and cancel to not include")
+    var includeLowerCase = window.confirm("Would you like to include lower case letters? Press Ok to include and cancel to not include")
+    var includeNumbers = window.confirm("Would you like to include numbers? Press Ok to include and cancel to not include")
+    var includeSpecialCharacters = window.confirm("Would you like to include special characters? Press Ok to include and cancel to not include")
+
+    while (includeUpperCase === false && includeLowerCase === false && includeNumbers === false && includeSpecialCharacters === false) {
+      alert("Must select atleast one criteria to generate a password");
+      return generatePassword();
+    }
+
+    if (includeUpperCase) {
+      allCharacters.push(upperCase);
+    };
+
+    if (includeLowerCase) {
+      allCharacters.push(lowerCase);
+    };
+
+    if (includeNumbers) {
+      allCharacters.push(numbers);
+    };
+
+    if (includeSpecialCharacters) {
+      allCharacters.push(specialCharacters);
+    };
+    console.log(allCharacters);
+
+
+  }
   criteria();
   return allCharacters;
 
-
-
 }
 
-// Function to determine the criteria to add in the password
-const criteria = function () {
-  var includeUpperCase = window.confirm("Would you like to include upper case letters? Press Ok to include and cancel to not include")
-  var includeLowerCase = window.confirm("Would you like to include lower case letters? Press Ok to include and cancel to not include")
-  var includeNumbers = window.confirm("Would you like to include numbers? Press Ok to include and cancel to not include")
-  var includeSpecialCharacters = window.confirm("Would you like to include special characters? Press Ok to include and cancel to not include")
 
-  while (includeUpperCase === false && includeLowerCase === false && includeNumbers === false && includeSpecialCharacters === false) {
-    alert("Must select atleast one criteria to generate a password");
-    return generatePassword();
-  }
-
-  if (includeUpperCase) {
-
-    passwordChars = allCharacters.push(upperCase);
-
-  } else {
-    passwordChars = allCharacters;
-  };
-
-  if (includeLowerCase) {
-
-    passwordChars = allCharacters.push(lowerCase);
-
-  } else {
-    passwordChars = allCharacters;
-  };
-
-  if (includeNumbers) {
-
-    passwordChars = allCharacters.push(numbers);
-
-  } else {
-    passwordChars = allCharacters;
-  };
-
-  if (includeSpecialCharacters) {
-
-    passwordChars = allCharacters.push(specialCharacters);
-
-  } else {
-    passwordChars = allCharacters;
-  };
-
-
-}
 
 
 
