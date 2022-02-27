@@ -9,5 +9,5 @@ Upon choosing the length of their generated password, the user is then asked to 
 The following is a live link to the password generator application: https://charanvir.github.io/PasswordGenerator/
 
 Below is a screenshot of the deployed application:
-- <img src="images/withoutPassword.jpeg">
-- <img src="images/withPassword.jpeg">
+- <img src="Develop/images/withoutPassword.jpeg">
+- <img src="Develop/images/withPassword.jpeg">
