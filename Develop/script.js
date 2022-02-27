@@ -24,6 +24,14 @@ function generatePassword() {
     var passWordLength = prompt("Please select a password length between 8 and 128");
   }
 
+  criteria();
+  return passwordChars;
+
+
+}
+
+
+const criteria = function () {
   var includeUpperCase = window.confirm("Would you like to include upper case letters? Press Ok to include and cancel to not include")
   var includeLowerCase = window.confirm("Would you like to include lower case letters? Press Ok to include and cancel to not include")
   var includeNumbers = window.confirm("Would you like to include numbers? Press Ok to include and cancel to not include")
@@ -36,34 +44,34 @@ function generatePassword() {
 
   if (includeUpperCase) {
 
-    password = allCharacters.push(upperCase);
+    passwordChars = allCharacters.push(upperCase);
   } else {
-    password = allCharacters;
+    passwordChars = allCharacters;
   };
 
   if (includeLowerCase) {
 
-    password = allCharacters.push(lowerCase);
+    passwordChars = allCharacters.push(lowerCase);
   } else {
-    password = allCharacters;
+    passwordChars = allCharacters;
   };
 
   if (includeNumbers) {
 
-    password = allCharacters.push(numbers);
+    passwordChars = allCharacters.push(numbers);
   } else {
-    password = allCharacters;
+    passwordChars = allCharacters;
   };
 
   if (includeSpecialCharacters) {
 
-    password = allCharacters.push(specialCharacters);
+    passwordChars = allCharacters.push(specialCharacters);
   } else {
-    password = allCharacters;
+    passwordChars = allCharacters;
   };
 
-  return password;
 
+  return passwordChars;
 }
 
 
