@@ -23,7 +23,17 @@ function generatePassword() {
     alert("Password must be between 8 and 128 characters")
     var passWordLength = prompt("Please select a password length between 8 and 128");
   }
+
   var includeUpperCase = window.confirm("Would you like to include upper case letters? Press Ok to include and cancel to not include")
+  var includeLowerCase = window.confirm("Would you like to include lower case letters? Press Ok to include and cancel to not include")
+  var includeNumbers = window.confirm("Would you like to include numbers? Press Ok to include and cancel to not include")
+  var includeSpecialCharacters = window.confirm("Would you like to include special characters? Press Ok to include and cancel to not include")
+
+  while (includeUpperCase === false && includeLowerCase === false && includeNumbers === false && includeSpecialCharacters === false) {
+    alert("Must select atleast one criteria to generate a password");
+    return generatePassword();
+  }
+
   if (includeUpperCase) {
 
     password = allCharacters.push(upperCase);
@@ -31,8 +41,6 @@ function generatePassword() {
     password = allCharacters;
   };
 
-
-  var includeLowerCase = window.confirm("Would you like to include lower case letters? Press Ok to include and cancel to not include")
   if (includeLowerCase) {
 
     password = allCharacters.push(lowerCase);
@@ -40,8 +48,6 @@ function generatePassword() {
     password = allCharacters;
   };
 
-
-  var includeNumbers = window.confirm("Would you like to include numbers? Press Ok to include and cancel to not include")
   if (includeNumbers) {
 
     password = allCharacters.push(numbers);
@@ -49,8 +55,6 @@ function generatePassword() {
     password = allCharacters;
   };
 
-
-  var includeSpecialCharacters = window.confirm("Would you like to include special characters? Press Ok to include and cancel to not include")
   if (includeSpecialCharacters) {
 
     password = allCharacters.push(specialCharacters);
@@ -58,14 +62,12 @@ function generatePassword() {
     password = allCharacters;
   };
 
-
-
   return password;
 
 }
 
 
-var allCharacters = ["HELLO"];
+var allCharacters = [];
 
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
